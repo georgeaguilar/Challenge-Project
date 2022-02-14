@@ -1,29 +1,30 @@
 import { Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { CreateTaskDto } from './dtos/create-taskdto';
+import { UpdateTaskDto } from './dtos/update-taskdto';
 
 @Controller('tasks')
 export class TasksController {
+  @Get()
+  async getTasks() {
+    return 'all the tasks';
+  }
 
-    @Get()
-    async getTasks(){
-        return 'all the tasks';
-    }
+  @Get(':id')
+  async getTask(@Param('id') id: string) {
+    return `task ${id}`;
+  }
 
-    @Get(':id')
-    async getTask(@Param('id') id: string){
-        return `task ${id}`;
-    }
+  @Post()
+  async createTask(taskDto: CreateTaskDto) {
+    return taskDto;
+  }
 
-    @Post()
-    async createTask(taskDto: any){
-        return "create a task";
-    }
+  @Put(':id')
+  async updateTask(@Param('id') id: string, taskDto: UpdateTaskDto) {
+    return taskDto;
+  }
 
-    @Put(':id')
-    async updateTask(@Param('id') id: string){
-        return 'edit task';
-    }
-
-    async deleteTask(@Param('id') id: string){
-        return id;
-    }
+  async deleteTask(@Param('id') id: string) {
+    return id;
+  }
 }
