@@ -1,6 +1,6 @@
-import { Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { CreateTaskDto } from './dtos/create-taskdto';
-import { UpdateTaskDto } from './dtos/update-taskdto';
+import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { CreateTaskDto } from './dtos/create-task.dto';
+import { UpdateTaskDto } from './dtos/update-task.dto';
 
 @Controller('tasks')
 export class TasksController {
@@ -24,6 +24,7 @@ export class TasksController {
     return taskDto;
   }
 
+  @Delete(':id')
   async deleteTask(@Param('id') id: string) {
     return id;
   }
