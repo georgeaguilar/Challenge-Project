@@ -8,12 +8,12 @@ export class UsersService {
     {
       userId: 1,
       email: 'georgeaguilar11@hotmail.com',
-      password: '123',
+      password: 123,
     },
     {
       userId: 2,
       email: 'carlosaguilar11@hotmail.com',
-      password: '123',
+      password: 123,
     },
   ];
 
