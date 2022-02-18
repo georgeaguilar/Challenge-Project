@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Login: React.FC = () => {
   return (
     <div
@@ -5,7 +7,7 @@ const Login: React.FC = () => {
   position-absolute top-50 start-50 translate-middle p-3 bm-5"
     >
       <div className="card-body">
-        <h5 className="card-title">Login</h5>
+        <h5 className="card-title text-center">Login</h5>
         <form>
           <div className="mb-3">
             <label className="form-label">Email address</label>
@@ -21,6 +23,9 @@ const Login: React.FC = () => {
           <button type="submit" className="btn btn-primary">
             Login
           </button>
+          <div className="p-4 mb-3 text-center">
+            Don't have an account? <Link to="/signup">Sign up</Link>
+          </div>
         </form>
       </div>
     </div>

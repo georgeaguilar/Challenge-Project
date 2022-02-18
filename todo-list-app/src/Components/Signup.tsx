@@ -1,11 +1,13 @@
-function Signup() {
+import { Link } from "react-router-dom";
+
+const Signup: React.FC = () => {
   return (
     <div
       className="card 
   position-absolute top-50 start-50 translate-middle p-3 bm-5"
     >
       <div className="card-body">
-        <h5 className="card-title">Sign Up</h5>
+        <h5 className="card-title text-center">Sign Up</h5>
         <form>
           <div className="mb-3">
             <label className="form-label">Email address</label>
@@ -21,10 +23,13 @@ function Signup() {
           <button type="submit" className="btn btn-primary">
             Sign Up
           </button>
+          <div className="p-4 mb-3 text-center">
+            Already have an account? <Link to="/login">Login</Link>
+          </div>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
