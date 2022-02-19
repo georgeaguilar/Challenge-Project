@@ -1,7 +1,8 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, Route, Router, Routes, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import { useEffect } from "react";
 import Tasks from "./Tasks";
+import CreateTasks from "./CreateTask";
 
 const Home: React.FC = () => {
   const hasAccessToken = Boolean(localStorage.getItem("accessToken"));
@@ -25,7 +26,10 @@ const Home: React.FC = () => {
   return (
     <div>
       <Navbar logout={logout} />
-      <Tasks />
+      {/* <Routes>
+        <Route path="/" element={<Tasks />}></Route>
+        <Route path="/" element={<CreateTasks />}></Route>
+      </Routes> */}
     </div>
   );
 };
