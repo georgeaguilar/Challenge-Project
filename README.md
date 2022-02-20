@@ -17,3 +17,24 @@ Runs the app in the development mode.\
 #### `npm test`
 
 Launches the test runner in the interactive watch mode.\
+
+### Structure
+
+## Back-end
+
+[Back-end](https://backend-todo-list-app.herokuapp.com/)
+
+### Run Aplication
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+### Structure
