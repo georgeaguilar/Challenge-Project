@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../API/api";
 
 interface ITask {
@@ -10,13 +11,22 @@ interface ITask {
 const Tasks: React.FC = () => {
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  async function onchange(event: any) {
+  async function onchange(event: React.ChangeEvent<HTMLInputElement>) {
     const id = event.target.name;
-    console.log(event.target.checked);
 
     await api.put(`/tasks/${id}`, { done: event.target.checked });
+
     const response = await api.get("/tasks");
+
     setTasks(response.data.tasks);
+  }
+
+  function onclick(taskId: string) {
+    return async () => {
+      await api.delete(`/tasks/${taskId}`);
+      const response = await api.get("/tasks");
+      setTasks(response.data.tasks);
+    };
   }
 
   useEffect(() => {
@@ -25,7 +35,7 @@ const Tasks: React.FC = () => {
     });
   }, []);
 
-  return (
+  return tasks.length > 0 ? (
     <div className="card position-absolute top-50 start-50 translate-middle p-3 bm-5 w-50">
       <h5 className="card-title text-center">List Tracks</h5>
       <ul className="list-group">
@@ -42,13 +52,23 @@ const Tasks: React.FC = () => {
                 />
                 {task.title}
               </div>
-              <button type="submit" className="btn btn-primary btn-sm ">
+              <button
+                type="submit"
+                className="btn btn-primary btn-sm"
+                onClick={onclick(task._id)}
+              >
                 Delete
               </button>
             </li>
           </div>
         ))}
       </ul>
+    </div>
+  ) : (
+    <div className="position-absolute top-50 start-50 translate-middle ">
+      You don't have any task.
+      <br />
+      <Link to="/new">Create a Task</Link>
     </div>
   );
 };
