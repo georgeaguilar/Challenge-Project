@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../API/api";
 
 const Signup: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -12,8 +12,8 @@ const Signup: React.FC = () => {
     e.preventDefault();
     setError("");
 
-    axios
-      .post("http://localhost:5000/users", {
+    api
+      .post("/users", {
         email,
         password,
       })

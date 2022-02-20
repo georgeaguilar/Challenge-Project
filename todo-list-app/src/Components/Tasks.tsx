@@ -37,7 +37,7 @@ const Tasks: React.FC = () => {
 
   return tasks.length > 0 ? (
     <div className="card position-absolute top-50 start-50 translate-middle p-3 bm-5 w-50">
-      <h5 className="card-title text-center">List Tracks</h5>
+      <h5 className="card-title text-center">List of Tasks</h5>
       <ul className="list-group">
         {tasks.map((task) => (
           <div key={task._id}>
