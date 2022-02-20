@@ -8,15 +8,13 @@ This project is a web application that lets you create tasks, check if you have 
 
 ### Run Aplication
 
-In the project directory, you can run:
+```bash
+# development
+$ npm start
 
-#### `npm start`
-
-Runs the app in the development mode.\
-
-#### `npm test`
-
-Launches the test runner in the interactive watch mode.\
+# test
+$ npm test
+```
 
 ### Structure
 
