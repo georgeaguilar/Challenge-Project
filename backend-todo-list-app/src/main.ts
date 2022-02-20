@@ -7,7 +7,7 @@ async function bootstrap() {
   app.enableCors();
   const logger = new Logger();
 
-  await app.listen(5000);
+  await app.listen(process.env.PORT || 5000);
 
   logger.log(`Server running in: ${await app.getUrl()}`);
 }
