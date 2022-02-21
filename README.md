@@ -2,6 +2,10 @@
 
 This project is a web application that lets you create tasks, check if you have finished the task and delete it. In order to use the app you have to sign up and log in.
 
+## Instructions
+
+You have to open the link of the backend before open the link of the frontend because sometimes the backend is sleep and you have to wakeup.
+
 ## Front-end
 
 [Front-end](https://frontend-todo-list-app.herokuapp.com/)
@@ -13,6 +17,7 @@ This project is a web application that lets you create tasks, check if you have 
 - Bootstrap
 - Axios
 - Node
+- Redux
 
 ### Run Aplication
 
@@ -25,6 +30,30 @@ $ npm test
 ```
 
 ### Structure
+
+```bash
+./todo-list-app/src
+|-- API
+|   `-- api.tsx
+|-- App.tsx
+|-- Components
+|   |-- CreateTask.tsx
+|   |-- Home.tsx
+|   |-- Login.tsx
+|   |-- Navbar.tsx
+|   |-- Signup.tsx
+|   |-- Tasks.tsx
+|   `-- tasksSlice.tsx
+|-- Tests
+|   `-- Signup.test.tsx
+|-- hooks.ts
+|-- index.css
+|-- index.tsx
+|-- react-app-env.d.ts
+|-- setupTests.ts
+`-- store.tsx
+
+```
 
 ## Back-end
 
@@ -51,6 +80,9 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# mongodb
+$ mongodb
 ```
 
 ### Structure

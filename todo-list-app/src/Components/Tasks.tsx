@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../API/api";
-
-interface ITask {
-  _id: string;
-  title: string;
-  done: boolean;
-}
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { updateAll } from "./tasksSlice";
 
 const Tasks: React.FC = () => {
-  const [tasks, setTasks] = useState<ITask[]>([]);
+  const tasks = useAppSelector((state) => state.tasks.value);
+  const dispatch = useAppDispatch();
 
   async function onchange(event: React.ChangeEvent<HTMLInputElement>) {
     const id = event.target.name;
@@ -17,23 +14,22 @@ const Tasks: React.FC = () => {
     await api.put(`/tasks/${id}`, { done: event.target.checked });
 
     const response = await api.get("/tasks");
-
-    setTasks(response.data.tasks);
+    dispatch(updateAll(response.data.tasks));
   }
 
   function onclick(taskId: string) {
     return async () => {
       await api.delete(`/tasks/${taskId}`);
       const response = await api.get("/tasks");
-      setTasks(response.data.tasks);
+      dispatch(updateAll(response.data.tasks));
     };
   }
 
   useEffect(() => {
     api.get("/tasks").then((resp) => {
-      setTasks(resp.data.tasks);
+      dispatch(updateAll(resp.data.tasks));
     });
-  }, []);
+  }, [dispatch]);
 
   return tasks.length > 0 ? (
     <div className="card position-absolute top-50 start-50 translate-middle p-3 bm-5 w-50">
