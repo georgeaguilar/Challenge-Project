@@ -4,7 +4,7 @@ This project is a web application that lets you create tasks, check if you have 
 
 ## Instructions
 
-You have to open the link of the backend before open the link of the frontend because sometimes the backend is sleep and you have to wakeup.
+You have to open the link of the backend before opening the link of the frontend because sometimes the backend service of heroku is asleep and you have to wake it up.
 
 ## Front-end
 
